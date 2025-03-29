@@ -1,0 +1,86 @@
+
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f4f4f4;
+  background-image: url('uni.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-blend-mode: lighten;
+
+}
+h1 {
+
+  color: #f4f4f4;
+  padding: 50px;
+  padding-top: 50px;
+  font-size: 45px;
+  background-color: #180956;
+  text-align: center ;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+select, input {
+  padding: 15px;
+  margin: 10px;
+  border: 1px solid #daaee7;
+  color: solid #daaee7;
+  border-radius: 5px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+button {
+  padding: 15px 20px;
+  color: #fff;
+  background-color: #5c158b;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+button:hover {
+  background-color: #580e8a;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  background: #fff;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+a:link {
+  color: #450b66;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+    width: 150px;
+    height: 100px;
+    float: center ;
+    border-radius: 5px;
+
+}
+
+nav {
+  margin-left: 515px;
+
+  text-decoration: none;
+  color: #450b66;
+ text-align: right;
+ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+a{
+  padding: 20px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
