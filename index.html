@@ -47,9 +47,10 @@
 
 
    
-       async function fetchUniversities() {
+       
+  }async function fetchUniversities() {
   const country = document.getElementById('country').value;
-  const name = document.getElementById('name').value;
+  const name = document.getElementById('name').value.trim();
   const loading = document.getElementById('loading');
   const universitiesList = document.getElementById('universities');
   const searchButton = document.querySelector('button');
@@ -66,14 +67,12 @@
   }
 
   try {
-    let url = 'https://universities.hipolabs.com/search?';
-    if (country) {
-      url += `country=${encodeURIComponent(country)}&`;
-    }
-    if (name) {
-      url += `name=${encodeURIComponent(name)}`;
-    }
+    // Build the URL based on filters
+    const params = new URLSearchParams();
+    if (country) params.append('country', country);
+    if (name) params.append('name', name);
 
+    const url = `https://universities.hipolabs.com/search?${params.toString()}`;
     const response = await fetch(url);
     const data = await response.json();
 
@@ -96,6 +95,8 @@
     searchButton.disabled = false;
   }
 }
+
+
   </script>
 </body>
 
