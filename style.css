@@ -1,86 +1,152 @@
 
 
+/* General Styling */
 body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
   background-color: #f4f4f4;
-  background-image: url('uni.jpg');
+
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  position: relative;
   background-blend-mode: lighten;
+  background-image: url("uni.jpg") ;}
 
+/* Add an overlay to improve text visibility */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ 
+  z-index: -1;
 }
+
+/* Header Section */
+header {
+  background: linear-gradient(135deg, #180956, #5c158b);
+  color: white;
+  padding: 30px 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 h1 {
-
-  color: #f4f4f4;
-  padding: 50px;
-  padding-top: 50px;
-  font-size: 45px;
-  background-color: #180956;
-  text-align: center ;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 0;
+  font-size: 50px;
+  font-weight: 700;
 }
-select, input {
+
+/* Navigation Bar */
+nav {
+  display: flex;
+  justify-content: right;
+  padding: 15px;
+
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: #daaee7;
+  text-decoration: underline;
+}
+
+/* Form Styling */
+div {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+select, input, button {
   padding: 15px;
   margin: 10px;
-  border: 1px solid #daaee7;
-  color: solid #daaee7;
   border-radius: 5px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  border: 2px solid #daaee7;
 }
+
+input {
+  width: 300px;
+}
+
 button {
-  padding: 15px 20px;
-  color: #fff;
-  background-color: #5c158b;
+  background: #5c158b;
+  color: white;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  transition: background 0.3s ease-in-out;
 }
+
 button:hover {
-  background-color: #580e8a;
+  background: #3e0c5b;
 }
+
+/* Loading Message */
+#loading {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+/* University List */
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
+  text-align: center;
 }
+
 li {
-  background: #fff;
-  margin: 10px 0;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: white;
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+  transition: transform 0.3s ease-in-out;
 }
-a:link {
-  color: #450b66;
+
+li:hover {
+  transform: scale(1.02);
+}
+
+a {
+  color: #5c158b;
+  font-weight: bold;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
 
-img {
-    width: 150px;
-    height: 100px;
-    float: center ;
-    border-radius: 5px;
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
 
-}
+  nav {
+    flex-direction: column;
+    text-align: center;
+  }
 
-nav {
-  margin-left: 515px;
-
-  text-decoration: none;
-  color: #450b66;
- text-align: right;
- font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-a{
-  padding: 20px;
-}
-
-nav a:hover {
-  text-decoration: underline;
+  select, input {
+    width: 100%;
+    max-width: 400px;
+  }
 }
