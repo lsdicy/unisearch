@@ -46,46 +46,56 @@
 
 
 
-    async function fetchUniversities() {
-      const country = document.getElementById('country').value;
-      const name = document.getElementById('name').value;
-      const loading = document.getElementById('loading');
-      const universitiesList = document.getElementById('universities');
+   
+       async function fetchUniversities() {
+  const country = document.getElementById('country').value;
+  const name = document.getElementById('name').value;
+  const loading = document.getElementById('loading');
+  const universitiesList = document.getElementById('universities');
+  const searchButton = document.querySelector('button');
 
-      universitiesList.innerHTML = '';
-      loading.style.display = 'block';
+  universitiesList.innerHTML = '';
+  loading.style.display = 'block';
+  searchButton.disabled = true;
 
+  if (!country && !name) {
+    universitiesList.innerHTML = '<li>Please select a country or enter a university name.</li>';
+    loading.style.display = 'none';
+    searchButton.disabled = false;
+    return;
+  }
 
-      if (!country && !name) {
-        universitiesList.innerHTML = '<li>Please select a country or enter a university name.</li>';
-        loading.style.display = 'none';
-        searchButton.disabled = false;
-        return;
-      }
-
-      try {
-        const response = await fetch(`https://universities.hipolabs.com/search?country=${country}&name=${name}`);
-        const data = await response.json();
-
-        // Sort by name
-        data.sort((a, b) => a.name.localeCompare(b.name));
-
-        if (data.length === 0) {
-          universitiesList.innerHTML = '<li>No universities found.</li>';
-        } else {
-          data.forEach(university => {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${university.name}</strong> (${university.country}) - <a href="${university.web_pages[0]}" target="_blank">Website</a>`;
-            universitiesList.appendChild(li);
-          });
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        universitiesList.innerHTML = '<li>Error loading data. Please try again later.</li>';
-      } finally {
-        loading.style.display = 'none';
-      }
+  try {
+    let url = 'https://universities.hipolabs.com/search?';
+    if (country) {
+      url += `country=${encodeURIComponent(country)}&`;
     }
+    if (name) {
+      url += `name=${encodeURIComponent(name)}`;
+    }
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    data.sort((a, b) => a.name.localeCompare(b.name));
+
+    if (data.length === 0) {
+      universitiesList.innerHTML = '<li>No universities found.</li>';
+    } else {
+      data.forEach(university => {
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${university.name}</strong> (${university.country}) - <a href="${university.web_pages[0]}" target="_blank">Website</a>`;
+        universitiesList.appendChild(li);
+      });
+    }
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    universitiesList.innerHTML = '<li>Error loading data. Please try again later.</li>';
+  } finally {
+    loading.style.display = 'none';
+    searchButton.disabled = false;
+  }
+}
   </script>
 </body>
 
