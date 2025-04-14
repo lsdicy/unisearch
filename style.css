@@ -102,16 +102,6 @@ select {
   padding-right: 36px; /* leave space for arrow */
 }
 
-input[type="text"],
-select {
-  width: 100%;
-  max-width: 300px;
-  padding: 10px 12px;
-  font-size: 16px;
-  border: 1px solid;
-  border-radius: 6px;
-  box-sizing: border-box;
-  appearance: none; /* removes default select styling (especially on iOS) */
 
 button {
   background: #5c158b;
