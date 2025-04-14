@@ -79,7 +79,8 @@ select, input, button {
 }
 
 input {
-  width: 300px;
+  width: 100%;
+max-width: 300px;
 }
 
 button {
@@ -135,18 +136,12 @@ a:hover {
 }
 
 /* Mobile Responsiveness */
-@media screen and (max-width: 768px) {
-  h1 {
-    font-size: 36px;
-  }
-
-  nav {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  select, input {
+@media (max-width: 768px) {
+  .search-bar {
     width: 100%;
-    max-width: 400px;
+    font-size: 16px;
+  }
+  .results {
+    padding: 10px;
   }
 }
