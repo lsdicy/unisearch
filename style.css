@@ -76,6 +76,7 @@ select, input, button {
   font-size: 18px;
   font-family: 'Poppins', sans-serif;
   border: 2px solid #daaee7;
+  appearance: none;
 }
 
 input {
